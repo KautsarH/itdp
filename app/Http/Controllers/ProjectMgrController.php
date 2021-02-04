@@ -85,4 +85,9 @@ class ProjectMgrController extends Controller
     {
         //
     }
+
+    public function listevent()
+    {
+        return view('pm.listEvent');
+    }
 }

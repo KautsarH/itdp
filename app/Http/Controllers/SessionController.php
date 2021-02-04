@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\Session;
+use App\Event;
+use DB;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
@@ -14,9 +16,16 @@ class SessionController extends Controller
      */
     public function index()
     {
-        $session = \App\Session::orderBy('id')->get();
+        // $session = \App\Event::where()->get();
+        $session = DB::table('sessions')
+            ->join('events', 'sessions.event_id', '=', 'events.id')
+            ->orderBy('event_id', 'DESC')
+            // ->join('orders', 'users.id', '=', 'orders.user_id')
+            // ->select('users.*', 'contacts.phone', 'orders.price')
+            ->get();
+        //dd($session);
         //dd($stations);
-        return view('session.index', compact('stations'));
+        return view('event.joined', compact('session'));
     }
 
     /**
@@ -37,7 +46,14 @@ class SessionController extends Controller
      */
     public function store(Request $request)
     {
-     //   
+        // dd($request['event_id']);
+        $session = Session::create([
+            'event_id' => $request->event_id,
+            'user_id' => Auth::user()->id,
+            'status' => 'incomplete',
+        ]);
+
+        return redirect()->route('event.listFilter');
     }
 
     /**

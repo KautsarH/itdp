@@ -43,7 +43,7 @@ class LoginController extends Controller
               break;
  
             case 'program manager':
-              return '/listParti';
+              return '/dashboard_pm';
               break; 
 
             default:

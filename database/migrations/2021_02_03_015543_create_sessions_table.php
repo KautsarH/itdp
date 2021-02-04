@@ -18,7 +18,7 @@ class CreateSessionsTable extends Migration
             $table->timestamps();
             $table->integer('user_id');
             $table->integer('event_id');
-            $table->string('status');
+            $table->string('status')->default('incomplete');
             // $table->string('link');
         });
     }

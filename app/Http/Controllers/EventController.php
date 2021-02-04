@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\Event;
 use Illuminate\Http\Request;
 
@@ -14,9 +14,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = \App\Event::orderBy('id')->get();
+        $events = \App\Event::orderBy('id', 'DESC')->get();
         //dd($stations);
-        return view('event.index', compact('events'));
+        return view('pm.listEvent', compact('events'));
     }
 
     /**
@@ -37,7 +37,8 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only('code','name', 'lat','lng','status');
+
+        $data = $request->only('title','date_start', 'seat','date_end','points','description','link');
         //dd($data['status']);
         $event = Event::create([
             'title' => $data['title'],
@@ -45,7 +46,10 @@ class EventController extends Controller
             'date_end' => $data['date_end'],
             'points' => $data['points'],
             'seat' => $data['seat'],
+            'points' => $data['points'],
+            'link' => $data['link'],
             'description' => $data['description'],
+            'user_id' => Auth::user()->id,
         ]);
 
         return redirect()->route('event.index', $event);
@@ -119,4 +123,15 @@ class EventController extends Controller
         return redirect()->route('event.index');
 
     }
+    public function listFilter()
+    {
+        //$filter = $request->filter;
+        $events1 = \App\Event::orderBy('created_at','DESC')->get();
+        //dd($stations);
+        return view('event.eventList', compact('events1'));
+    }
+
+    
+
+
 }

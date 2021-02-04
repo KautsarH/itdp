@@ -8,6 +8,6 @@ class Session extends Model
 {
     protected $table = 'sessions';
 
-    protected $fillable = ['event_id','user_id'];
+    protected $fillable = ['event_id','user_id','status'];
     // public function session
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
-class EventController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,10 +43,10 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Event  $event
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show(User $user)
     {
         return view('user.show', compact('user'));
 
@@ -55,10 +55,10 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Event  $event
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit(User $user)
     {
         //
     }
@@ -67,21 +67,34 @@ class EventController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Event  $event
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, User $user)
     {
-        //
+        if($user->isLead == 0)
+        {
+            $user = \App\User::updateOrCreate([
+                'isLead' => 1,
+                ]);
+        }
+        else
+        {
+            $user = \App\User::updateOrCreate([
+                'isLead' => 0,
+                ]);
+        }
+
+        return redirect()->route('pm.listParti');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Event  $event
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy(User $user)
     {
         //
     }

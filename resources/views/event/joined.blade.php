@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>List of Participants</title>
+    <title>List of Events Joined</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,17 +33,25 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">ITDP <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">ITDP</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+            <!-- <li class="nav-item active">
+                <a class="nav-link" href="{{route('pm.listEvent')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>List of Events</span></a>
+            </li> -->
+
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href='#'>
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Profile</span></a>
             </li>
 
             <!-- Divider -->
@@ -51,83 +59,55 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Events
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('pm.listEvent')}}" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>List All Events</span>
+                </a>
+
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Review Events</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Participant
             </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('pm.listParti')}}" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>List All Participant</span>
+                </a>
+            </li>
+
+
+
+
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
+
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
                         <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+                        <!-- Sidebar Toggler (Sidebar) -->
+                        <div class="text-center d-none d-md-inline">
+                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                        </div>
 
         </ul>
         <!-- End of Sidebar -->
@@ -330,7 +310,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"> List of Participants</h1>
+                        <h1 class="h3 mb-0 text-gray-800"> List of Events Joined</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
 
@@ -338,166 +318,85 @@
                     <div class="row">
 
                         <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-                        </div>
+                        {{-- <div class="col-lg-6 mb-4">
+                        </div> --}}
                         <!-- Project Card Example -->
                         <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                            </div>
                             <div class="card-body">
                                 <div class="card card-default">
-                                    <div class="card-header">List of Participants</div>
+                                    <!-- <div class="card-header">List of Events Joied<br>
+                                        <select name="filter" id="filter">
+                                            <option value="date_created">Date Created</option>
+                                            <option value="date_start">Date Start</option>
+                                            <option value="date_end">Date End</option>
+                                        </select>
+                                    </div> -->
                                     <div class="card-body">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Role</th>
-                                                    <th>Leader Commitee</th>
-                                                    <th>Total Points</th>
-                                                    <th></th>
+                                                    <th>Title</th>
+                                                    <th>Description</th>
+                                                    <th>Status</th>
+                                                
                                                 </tr>
                                             </thead>
 
                                             <tbody>
-                                                @foreach($listParti as $user)
+                                                @foreach($session as $event)
                                                 <tr>
-                                                    <td>{{$user->name}}</td>
-                                                    <td>{{$user->email}}</td>
-                                                    <td>{{$user->role}}</td>
-                                                    <td>@if ($user->isLead == 1 )
-                                                        Yes
-                                                        @else
-                                                        No
-                                                        @endif
-                                                    </td>
-                                                    <td>{{$user->totalPoints}}</td>
-                                                    <td>
-                                                        <button class="btn btn-primary" href="" {{ route('user.update') }}" onclick="event.preventDefault();
-                                                     document.getElementById('confirmation').submit();" />
-                                                        <form id="confirmation" action="{{ route('user.update') }}" method="POST" class="d-none">
-                                                            @csrf
-                                                            <input type="hidden" id="event_id" name="event_id" value="{{$user->id}}">
-                                                        </form>
-                                                        <a href="" class="btn btn-primary">Assign as Commitee Lead</a>
-                                                    </td>
+                                                    <td>{{$event->title}}</td>
+                                                    <td>{{$event->description}}</td>
+                                                    <td>{{$event->status}}</td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
+                            </div>
+                            <footer class="sticky-footer bg-white">
+                                <div class="container my-auto">
+                                    <div class="copyright text-center my-auto">
+                                        <span>Copyright &copy; Your Website 2020</span>
+                                    </div>
+                                </div>
+                            </footer>
+                            <!-- End of Footer -->
 
+                        </div>
+                        <!-- End of Content Wrapper -->
+
+                    </div>
+                    <!-- End of Page Wrapper -->
+
+                    <!-- Scroll to Top Button-->
+                    <a class="scroll-to-top rounded" href="#page-top">
+                        <i class="fas fa-angle-up"></i>
+                    </a>
+
+                    <!-- Logout Modal-->
+                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                    <a class="btn btn-primary" href="" {{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Leader Commitee</th>
-                            <th>Total Points</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        @foreach($listParti as $user)
-                        <tr>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->role}}</td>
-                            <td>@if ($user->isLead == 1 )
-                                Yes
-                                @else
-                                No
-                                @endif
-                            </td>
-                            <td>{{$user->totalPoints}}</td>
-                            <td><a href="" class="btn btn-primary">Assign as Commitee Lead</a></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
         </div>
-
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-6 mb-4">
-    </div>
-    </div>
-
-    </div>
-    <!-- /.container-fluid -->
-
-    </div>
-    <!-- End of Main Content -->
-
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2020</span>
-            </div>
-        </div>
-    </footer>
-    <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{ route('login') }}">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-
-</body>
-
-</html>
